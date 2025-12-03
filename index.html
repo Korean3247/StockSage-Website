@@ -125,6 +125,7 @@
     .card-title { font-weight: 700; }
     .chip-row { display: flex; gap: 10px; flex-wrap: wrap; }
     .chip { padding: 8px 12px; border-radius: 12px; border: 1px solid var(--stroke); color: var(--muted); }
+    .hero-switches { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
     section { margin: 64px 0; scroll-margin-top: 96px; }
     .section-title { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
     .grid { display: grid; gap: 16px; }
@@ -193,14 +194,15 @@
       </div>
       <div class="panel hero-card">
         <div class="badge">Live preview</div>
-        <div class="card-title">!price AAPL</div>
-        <p class="lede" style="margin:0;">Instant quote with change %, RSI, and chart links. Works in any channel.</p>
-        <div class="chip-row">
-          <div class="chip">Real-time quotes</div>
-          <div class="chip">Smart alerts</div>
-          <div class="chip">Portfolio P/L</div>
-          <div class="chip">News sentiment</div>
+        <div class="hero-switches">
+          <button class="pill hero-btn primary" data-hero="price">Price</button>
+          <button class="pill hero-btn" data-hero="alert">Alert</button>
+          <button class="pill hero-btn" data-hero="portfolio">Portfolio</button>
+          <button class="pill hero-btn" data-hero="chart">Chart</button>
         </div>
+        <div class="card-title" id="hero-command">!price AAPL</div>
+        <p class="lede" style="margin:0;" id="hero-desc">Instant quote with change %, RSI, and chart links. Works in any channel.</p>
+        <div class="chip-row" id="hero-chips"></div>
       </div>
     </section>
 

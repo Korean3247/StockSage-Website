@@ -22,6 +22,29 @@ const demoData = {
   },
 };
 
+const heroData = {
+  price: {
+    command: "!price AAPL",
+    desc: "Instant quote with change %, RSI, and chart links. Works in any channel.",
+    chips: ["Real-time quotes", "News sentiment"],
+  },
+  alert: {
+    command: "!alert TSLA 200",
+    desc: "Set a target and get a DM when it hits.",
+    chips: ["Smart alerts", "DM delivery"],
+  },
+  portfolio: {
+    command: "!portfolio",
+    desc: "Holdings, P/L, and cash at a glance.",
+    chips: ["Portfolio P/L", "Export CSV"],
+  },
+  chart: {
+    command: "!chart NVDA 1y",
+    desc: "1-year chart with SMA/EMA/RSI as a PNG.",
+    chips: ["Technical view", "Quick PNG"],
+  },
+};
+
 function renderDemo(key) {
   const data = demoData[key];
   if (!data) return;
@@ -38,6 +61,26 @@ function renderDemo(key) {
   } else {
     imgEl.style.display = "none";
     imgEl.src = "";
+  }
+}
+
+function renderHero(key) {
+  const data = heroData[key];
+  if (!data) return;
+  const cmdEl = document.getElementById("hero-command");
+  const descEl = document.getElementById("hero-desc");
+  const chipsEl = document.getElementById("hero-chips");
+
+  if (cmdEl) cmdEl.textContent = data.command;
+  if (descEl) descEl.textContent = data.desc;
+  if (chipsEl) {
+    chipsEl.innerHTML = "";
+    data.chips.forEach((label) => {
+      const chip = document.createElement("div");
+      chip.className = "chip";
+      chip.textContent = label;
+      chipsEl.appendChild(chip);
+    });
   }
 }
 
@@ -58,4 +101,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // 초기 상태
   renderDemo("price");
+
+  // Hero preview controls
+  const heroButtons = document.querySelectorAll(".hero-btn");
+  heroButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      heroButtons.forEach((b) => b.classList.remove("primary"));
+      btn.classList.add("primary");
+      renderHero(btn.dataset.hero);
+    });
+  });
+  renderHero("price");
 });
