@@ -1,7 +1,7 @@
 const demoData = {
   price: {
     user: "!price AAPL",
-    bot: "📈 Apple Inc. (AAPL)\n💰 Current Price: $189.44\n🔺 Change (Prev Close): +1.12 ( +0.59% )",
+    bot: "📈 Apple Inc. (AAPL)\n💰 Current Price: $189.44\n🔺 Change (Prev Close): +1.12 (+0.59%)",
   },
   alert: {
     user: "!alert TSLA 200",
@@ -9,7 +9,7 @@ const demoData = {
   },
   portfolio: {
     user: "!portfolio",
-    bot: "📊 Your Portfolio Holdings\n📈 TSLA: 5 shares\nAvg Buy: $180.00 | Current: $190.25\n💰 Unrealized P/L: +$51.25\n\nCash Balance: $9,048.75",
+    bot: "📊 Your Portfolio Holdings\n📈 TSLA: 5 shares\nAvg Buy: $180.00 | Current: $190.25\n💰 Unrealized P/L: +$51.25\n\n📈 AAPL: 3 shares\nAvg Buy: $175.00 | Current: $178.40\n💰 Unrealized P/L: +$10.20\n\nCash Balance: $9,048.75",
   },
   chart: {
     user: "!chart NVDA 1y",
