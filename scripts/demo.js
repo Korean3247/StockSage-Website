@@ -91,6 +91,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.scrollTo({ top: 0, left: 0, behavior: "auto" });
 
+  // 테마 초기화
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+  root.setAttribute("data-theme", initialTheme);
+
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    const setLabel = (theme) => {
+      themeToggle.textContent = theme === "dark" ? "☾ Dark" : "☀︎ Light";
+    };
+    setLabel(initialTheme);
+    themeToggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      const next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      setLabel(next);
+    });
+  }
+
   const buttons = document.querySelectorAll(".demo-btn");
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
