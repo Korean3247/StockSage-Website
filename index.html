@@ -37,7 +37,7 @@
       --glow: 0 14px 36px rgba(35, 194, 143, 0.18);
       --chip-bg: #f1f5f9;
       --badge-text: #0f172a;
-      --header-bg: var(--bg);
+      --header-bg: rgba(247, 249, 251, 0.7);
       --cta-bg: linear-gradient(135deg, rgba(35,194,143,0.12), rgba(31,155,114,0.08));
       --cta-stroke: #dfe3ea;
     }
@@ -53,7 +53,7 @@
       --glow: 0 20px 60px rgba(43, 212, 197, 0.25);
       --chip-bg: rgba(255,255,255,0.05);
       --badge-text: #b2fff7;
-      --header-bg: var(--bg);
+      --header-bg: rgba(12, 22, 38, 0.6);
       --cta-bg: radial-gradient(circle at 10% 10%, rgba(43,212,197,0.08), transparent 40%), rgba(15,23,42,0.7);
       --cta-stroke: rgba(255,255,255,0.08);
     }
@@ -79,8 +79,11 @@
       top: 0;
       z-index: 2;
       background: var(--header-bg);
-      border: none;
-      box-shadow: none;
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--stroke);
+      border-left: none;
+      border-right: none;
+      box-shadow: 0 6px 18px rgba(17, 24, 39, 0.04);
     }
     .logo {
       display: flex;
