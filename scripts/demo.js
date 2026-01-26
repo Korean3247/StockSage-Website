@@ -134,4 +134,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   renderHero("price");
+
+  // Ensure email link opens mail client even on strict browsers
+  const emailLink = document.querySelector(".email-link");
+  if (emailLink) {
+    emailLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "mailto:gpark69@wisc.edu?subject=StockSage%20Support";
+    });
+  }
 });
