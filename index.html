@@ -199,7 +199,31 @@
     summary { cursor: pointer; font-weight: 600; }
     summary::marker { color: var(--primary); }
     .cta-final { text-align: center; padding: 40px 24px; border-radius: 20px; background: var(--cta-bg); border: 1px solid var(--cta-stroke); box-shadow: var(--glow); }
-    footer { text-align: center; color: var(--muted); padding: 32px 0 40px; font-size: 14px; }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 32px 0 40px;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+    .footer-links a {
+      color: var(--muted);
+      font-weight: 600;
+      border-bottom: 1px solid transparent;
+    }
+    .footer-links a:hover {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
     @media (max-width: 900px) {
       header { position: static; }
       .hero { grid-template-columns: 1fr; }
@@ -396,7 +420,11 @@
   </main>
 
   <footer>
-    StockSage · Smarter markets on Discord
+    <div>StockSage · Smarter markets on Discord</div>
+    <div class="footer-links">
+      <a href="https://github.com/Korean3247/StockSage-Discord-Bot" target="_blank" rel="noopener noreferrer">GitHub: Discord Bot</a>
+      <a href="https://github.com/Korean3247/StockSage-Website" target="_blank" rel="noopener noreferrer">GitHub: Website</a>
+    </div>
   </footer>
   <script src="scripts/demo.js"></script>
 </body>
